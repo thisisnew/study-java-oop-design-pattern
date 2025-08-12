@@ -3,7 +3,7 @@ package chapter14.composite;
 public class Client {
     public static void main(String[] args) {
 
-        Computer computer = Computer.newInstance()
+        var computer = Computer.newInstance()
                 .addDevices(
                         new Body(1000, 100),
                         new Keyboard(200, 20),
