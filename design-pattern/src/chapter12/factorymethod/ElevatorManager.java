@@ -3,24 +3,21 @@ package chapter12.factorymethod;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ElevatorManager {
+public abstract class ElevatorManager {
     private final List<ElevatorController> controllers;
-    private final SchedulingStrategyID strategyID;
 
-    public ElevatorManager(int controllerCount, SchedulingStrategyID strategyID) {
+    public ElevatorManager(int controllerCount) {
         controllers = new ArrayList<>(controllerCount);
 
         for (int i = 0; i < controllerCount; i++) {
             controllers.add(new ElevatorController(i+1));
         }
-
-        this.strategyID = strategyID;
     }
 
-    void requestElevator(int destination, Direction direction) {
-        ElevatorScheduler scheduler = SchedulerFactory.getScheduler(strategyID);
-        System.out.println(scheduler);
+    protected  abstract ElevatorScheduler getScheduler();
 
+    void requestElevator(int destination, Direction direction) {
+        ElevatorScheduler scheduler = getScheduler();
         int selectedElevator = scheduler.selectElevator(this, destination, direction);
         controllers.get(selectedElevator).gotoFloor(destination);
     }

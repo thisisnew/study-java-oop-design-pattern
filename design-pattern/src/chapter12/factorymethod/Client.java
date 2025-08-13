@@ -2,13 +2,13 @@ package chapter12.factorymethod;
 
 public class Client {
     public static void main(String[] args) {
-        ElevatorManager emWithResponseTimeScheduler = new ElevatorManager(2, SchedulingStrategyID.RESPONSE_TIME);
+        ElevatorManager emWithResponseTimeScheduler = new ElevatorManagerWithResponseTimeScheduling(2);
         emWithResponseTimeScheduler.requestElevator(10, Direction.UP);
 
-        ElevatorManager emWithThroughputScheduler = new ElevatorManager(2, SchedulingStrategyID.THROUGHPUT);
+        ElevatorManager emWithThroughputScheduler = new ElevatorManagerWithThroughputScheduling(2);
         emWithThroughputScheduler.requestElevator(10, Direction.UP);
 
-        ElevatorManager emWithDynamicScheduler = new ElevatorManager(2, SchedulingStrategyID.DYNAMIC);
+        ElevatorManager emWithDynamicScheduler = new ElevatorManagerWithDynamicScheduling(2);
         emWithDynamicScheduler.requestElevator(10, Direction.UP);
     }
 }
