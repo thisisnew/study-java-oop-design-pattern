@@ -6,9 +6,9 @@ public class Client {
         emWithResponseTimeScheduler.requestElevator(10, Direction.UP);
 
         ElevatorManager emWithThroughputScheduler = new ElevatorManagerWithThroughputScheduling(2);
-        emWithThroughputScheduler.requestElevator(10, Direction.UP);
+        emWithThroughputScheduler.requestElevator(11, Direction.UP);
 
         ElevatorManager emWithDynamicScheduler = new ElevatorManagerWithDynamicScheduling(2);
-        emWithDynamicScheduler.requestElevator(10, Direction.UP);
+        emWithDynamicScheduler.requestElevator(12, Direction.UP);
     }
 }
